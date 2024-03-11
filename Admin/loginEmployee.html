@@ -1,0 +1,157 @@
+<html>
+
+<head>
+    <title>Login Employee</title>
+    <link rel="stylesheet" href="css/loginEmployee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css"
+        integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body style="background-color: rgb(198, 228, 200);">
+    <form action="">
+        <div class="frame">
+            <div class="frame__left">
+                <div class="frame__left__border">
+                    <div class="frame__login">
+                        <div class="frame__title1__1">
+                            <div class="frame__title1">
+                                <div class="frame__title1__text">
+                                    Welcome to Farm
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame__title2">
+                            Sign In
+                        </div>
+                        <div class="frame__title3">
+                            <div class="frame__title3__group">
+                                <div class="frame__title3__group__content">
+                                    <div class="frame__textsignin1">
+                                        Login with Employee account.
+                                    </div>
+                                    <div class="frame__textsignin2">
+                                        <!-- <a style="text-decoration: none;" href="./signupUser.html"> Sign Up.</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame__title4">
+                            <div class="input__group">
+                                <div class="mb33">
+                                    <input type="text" class="form-control" id="i1" placeholder="Username">
+                                </div>
+                                <div class="mb33">
+                                    <input type="password" class="form-control" id="i2" placeholder="Password">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="frame__title5">
+                            <div class="frame__button">
+                                <button onclick="signUp()" type="button" class="btn btn-dark">Sign In</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="frame__right">
+                <div class="frame__right__img">
+                    <div class="frame__right__img__context">
+                        <img style="width: 80%; height: 100%; border-radius: 15px;box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  "
+                            src="Images/img8.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        async function signUp() {
+            validUSer();
+            var username = document.getElementById('i1').value;
+            var password = document.getElementById('i2').value;
+            var account = {
+                "username": username,
+                "password": password
+            }
+            var url = 'https://agriculture.cosplane.asia/api/Employee/Login';
+            var respon = await fetch(url,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(account)
+                }
+            );
+            if (respon.ok) {
+                var texts = await respon.text();
+                var pTexts = JSON.parse(texts);
+                var token = pTexts.token;
+                localStorage.setItem("token", token);
+                location.replace("index.html");
+            }
+            else {
+                alert('Fail2')
+            }
+        }
+
+
+
+        function validUSer() {
+            var i1 = document.getElementById("i1").value;
+            var i2 = document.getElementById("i2").value;
+            var c = check1(i1);
+            var a = check1(i2);
+            if (c && a) {
+                //   submit();
+            } else {
+                submitFail();
+            }
+
+        }
+        function check1(value) {
+            return /^[a-zA-Z0-9]{4,20}$/.test(value);
+        }
+
+        function submit() {
+            iziToast.success({
+                title: 'FARM: ',
+                message: 'Successful !',
+                position: 'topRight'
+            })
+            iziToast.fail
+        }
+        function submitFail() {
+            iziToast.error({
+                title: 'FARM: ',
+                message: '4-20 Character aA-zZ, number 0-9',
+                position: 'topRight',
+            });
+        }
+
+
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+        integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"
+        integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

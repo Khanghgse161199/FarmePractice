@@ -1,0 +1,217 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.frame {
+    width: 100%;
+    display: flex;
+}
+
+.frame__left {
+    width: 900px;
+    box-sizing: border-box;
+    padding: 50px 50px;
+
+}
+.frame__right{
+    width: 50%;
+}
+.frame__left__border {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 70px 0px;
+    box-sizing: border-box;
+}
+
+.frame__login {
+    border: 1px solid rgb(235, 235, 235);
+    width: 420px;
+    height: 550px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.frame__title1__1 {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.frame__title1 {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.frame__title1__text {
+    height: fit-content;
+    font-size: 170%;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+.frame__title2 {
+    height: 12%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 20px;
+    display: flex;
+    font-size: 150%;
+    font-weight: 500;
+}
+
+
+.frame__title3__group {
+    width: 100%;
+    height: 8%;
+    box-sizing: border-box;
+    padding: 7px 20px;
+    display: flex;
+}
+
+.frame__title3__group__content {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 95%;
+}
+
+.frame__textsignin2,
+.frame__textsignin1 {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.frame__title4 {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.input__group {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mb33 {
+    height: 35%;
+    width: 100%;
+}
+
+.form-control {
+    height: 100%;
+}
+
+.frame__title5 {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.frame__button {
+    
+    width: 100%;
+    height: 40%;
+    padding: 0 20px;
+}
+
+.btn-dark {
+    width: 100%;
+    height: 100%;
+   
+}
+.frame__right__img{
+   
+    height: 680px;
+    display: flex;
+    flex-direction: column-reverse;
+   
+}
+.frame__right__img__context{
+   
+    width: 780px;
+    height: 82.5%;
+}
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+  
+  /* Style the submit button */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Style the container for inputs */
+  .container {
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  
+  /* The message box is shown when the user clicks on the password field */
+  #message {
+    display:none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  #message p {
+    padding: 10px 35px;
+    font-size: 18px;
+  }
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10004;";
+  }
+  
+  /* Add a red text color and an "x" icon when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10006;";
+  }
